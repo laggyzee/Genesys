@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!-- Created as an example by https://github.com/mcphee11 Version 2.0 -->
+<html>
+<head>
+    <meta name="robots" content="noindex" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="Template" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Genesys CSS https://spark.genesys.com/ -->
+<link href="https://dhqbrvplips7x.cloudfront.net/common-ui-docs/genesys-webcomponents/3.8.1-178/genesys-webcomponents/genesys-webcomponents.css" rel="stylesheet" />
+    <script type="module" src="https://dhqbrvplips7x.cloudfront.net/common-ui-docs/genesys-webcomponents/3.8.1-178/genesys-webcomponents/genesys-webcomponents.esm.js"></script>
+    <!-- Genesys SDK info https://developer.genesys.cloud/ -->
+    <script src="https://sdk-cdn.mypurecloud.com/javascript/latest/purecloud-platform-client-v2.min.js"></script>
+    <style>
+      /* add a black border around the container */
+      .quick-sends {
+  border: 5px solid black;
+  padding: 10px;
+  text-align: center; /* center align the container content */
+}
+
+.quick-sends__title {
+  margin-top: 0;
+  font-weight: bold;
+  margin-bottom: 1px; /* add some bottom margin to create spacing between title and buttons */
+}
+
+.quick-sends__button {
+	margin-top: 5px;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 5px; /* add margin around each button */
+}
+
+.alerts {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 31px;
+    padding: 10px;
+    overflow: auto; /* something other than visible */
+    resize: both;
+    border: 1px solid var(--gux-charcoal-grey);
+  }  
+    </style>
+  </head>
+  <body onload="start(); fillTableValues()" style="background-color: white;">
+
+      <gux-badge-beta bold color="yellow">This feature is in BETA</gux-badge-beta> 
+
+    <p><strong><u>Customer Provided Details:</u></strong></p>
+    <gux-table-beta compact>
+      <table slot="data">
+        <thead>
+          <tr>
+            <th>Customer Name</th>
+            <th>Date of Birth</th>
+            <th>MSN</th>
+            <th>E-Mail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="fullNameCell">No Details Provided</td>
+            <td id="dobCell">No Details Provided</td>
+            <td id="MSNCell">No Details Provided</td>
+            <td id="eMailCell">No Details Provided</td>
+          </tr>
+        </tbody>
+      </table>
+    </gux-table-beta>
+     
+    
+        <p>
+          
+          <!-- wrap the buttons and heading in a container -->
+        </p>
+        <div class="quick-sends">
+          <h2 class="quick-sends__title">Quick Sends</h2>
+          <div class="quick-sends__buttons">
+    <gux-button onclick="sendCannedMessage('cbed3d48-a6a0-4253-ba5b-02ae4f2cf0e7')" accent="primary" style="min-width: 150px; margin: 5px;">
+        <gux-icon icon-name="message-reply"></gux-icon><span>Away Message</span>
+    </gux-button>
+    <gux-button onclick="sendCannedMessage('20b43db2-df7f-4168-9d95-9d403b70f527')" accent="primary" style="min-width: 150px; margin: 5px;">
+        <gux-icon icon-name="message-reply"></gux-icon><span>2FA + GreenID</span>
+    </gux-button>
+    <gux-button onclick="sendCannedMessage('ea830f74-c5fb-42b0-bc4b-ef3b5f260c63')" accent="primary" style="min-width: 150px; margin: 5px;">
+        <gux-icon icon-name="message-reply"></gux-icon><span>Hold Message</span>
+    </gux-button>
+    <gux-button onclick="sendCannedMessage('63da658d-9f7d-4577-8104-8abbd6f53765')" accent="primary" style="min-width: 150px; margin: 5px;">
+        <gux-icon icon-name="message-reply"></gux-icon><span>Wrap Up</span>
+    </gux-button>
+    <gux-button onclick="sendCannedMessage('7cb2cdc2-f765-4217-8d92-123bf3225b53')" accent="primary" style="min-width: 150px; margin: 5px;">
+        <gux-icon icon-name="message-reply"></gux-icon><span>2FA</span>
+    </gux-button>
+    <gux-button onclick="sendCannedMessage('9bd4b971-8583-47f9-ac11-0547d6b55bbc')" accent="primary" style="min-width: 150px; margin: 5px;">
+       <gux-icon icon-name="message-reply"></gux-icon><span>Port Number</span>
+    </gux-button>
+    <gux-button onclick="sendCannedMessage('b443dc07-8d7e-4fb8-a7fa-51dd65888543')" accent="primary" style="min-width: 150px; margin: 5px;">
+        <gux-icon icon-name="message-reply"></gux-icon><span>APN iPhone</span>
+    </gux-button>
+    <gux-button onclick="sendCannedMessage('163966cd-b8d8-4d07-93cd-9dc9d563de14')" accent="primary" style="min-width: 150px; margin: 5px;">
+        <gux-icon icon-name="message-reply"></gux-icon><span>APN Android</span>
+    </gux-button>
+    <gux-button onclick="sendCannedMessage('2ee103b1-aa93-420d-bf64-1b46259c34b0')" accent="primary" style="min-width: 150px; margin: 5px;">
+       <gux-icon icon-name="message-reply"></gux-icon><span>How to Activate</span>
+    </gux-button>
+    <gux-button onclick="sendCannedMessage('5d65b291-1af5-491e-a80a-1d8f64b8bcf2')" accent="primary" style="min-width: 150px; margin: 5px;">
+       <gux-icon icon-name="message-reply"></gux-icon><span>How to Recharge</span>
+    </gux-button>
+    <gux-button onclick="sendCannedMessage('ae5e2427-9875-4185-9b21-f488e4719ffa')" accent="primary" style="min-width: 150px; margin: 5px;">
+        <gux-icon icon-name="message-reply"></gux-icon><span>Add Extras</span>
+    </gux-button>
+    <gux-button onclick="sendCannedMessage('ae5e2427-9875-4185-9b21-f488e4719ffa')" accent="primary" style="min-width: 150px; margin: 5px;">
+      <gux-icon icon-name="message-reply"></gux-icon>
+      <span>TEST</span> </gux-button>
+          </div>
+        </div>
+
+        <script>
+          function getUrlParam(paramName) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(paramName);
+          }
+          
+          function fillTableValues() {
+            const fullName = getUrlParam('fullName');
+            const eMail = getUrlParam('eMail');
+            const MSN = getUrlParam('MSN');
+            const dob = getUrlParam('dob');
+          
+            if (fullName) {
+              document.getElementById('fullNameCell').innerText = fullName;
+            }
+            if (eMail) {
+              document.getElementById('eMailCell').innerText = eMail;
+            }
+            if (MSN) {
+              document.getElementById('MSNCell').innerText = MSN;
+            }
+            if (dob) {
+              document.getElementById('dobCell').innerText = dob;
+            }
+          }
+          </script>
+
+
+        <p>Communication ID: <span id="communicationId"></span></p>
+        <p>Interaction State: <span id="interactionState"></span></p>
+        <p>Conversation ID: <span id="conversationId"></span></p>    
+    <script src="sendWelcome.js"></script>
+    <script src="sendMessage.js"></script>
+  
+  </body>
+  
+</html>
+
+
+
