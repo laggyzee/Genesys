@@ -1,3 +1,13 @@
+document.querySelectorAll('gux-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const responseId = button.getAttribute('data-id');
+        if (responseId) {
+            sendCannedMessage(responseId);
+        }
+    });
+});
+
+
 async function sendCannedMessage(responseId) {
     const platformClient = require('platformClient');
     const rapi = new platformClient.ResponseManagementApi();
@@ -45,19 +55,3 @@ function extractTextFromHTML(htmlString) {
     tempDiv.innerHTML = htmlString;
     return tempDiv.textContent || tempDiv.innerText || '';
 }
-
-document.getElementById('away-message-btn').addEventListener('click', () => {
-    sendCannedMessage('cbed3d48-a6a0-4253-ba5b-02ae4f2cf0e7');
-});
-
-document.getElementById('2fa-greenid-btn').addEventListener('click', () => {
-    sendCannedMessage('20b43db2-df7f-4168-9d95-9d403b70f527');
-});
-
-document.getElementById('hold-message-btn').addEventListener('click', () => {
-    sendCannedMessage('ea830f74-c5fb-42b0-bc4b-ef3b5f260c63');
-});
-
-document.getElementById('wrap-up-btn').addEventListener('click', () => {
-    sendCannedMessage('63da658d-9f7d-4577-8104-8abbd6f53765');
-});
