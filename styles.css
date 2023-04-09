@@ -14,13 +14,15 @@
     /* add some bottom margin to create spacing between title and buttons */
 }
 
-.quick-sends__button {
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-left: 5px;
-    margin-bottom: 5px;
-    /* add margin around each button */
-}
+.quick-sends__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 5px;
+  }
+  
 
 .alerts {
     display: flex;
@@ -38,3 +40,9 @@
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); /* You can use any shadow style provided in the Genesys web components documentation */
   }
   
+  .quick-sends__filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }

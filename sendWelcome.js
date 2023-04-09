@@ -23,6 +23,10 @@ let platformClient = require('platformClient')
 const client = platformClient.ApiClient.instance
 const uapi = new platformClient.UsersApi()
 const capi = new platformClient.ConversationsApi();
+const convApi = new platformClient.ConversationsApi();
+
+
+window.conversationId = gc_conversationId;
 
 async function start() {
   try {
@@ -79,7 +83,6 @@ async function sendMessage() {
     console.error(err)
   }
 }
-
 
 //JavaScript Native way to get Url Parameters for config
 function getParameterByName(name, url) {
