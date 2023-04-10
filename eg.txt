@@ -1,0 +1,719 @@
+postAnalyticsConversationsDetailsQuery success! data: {
+  "conversations": [
+    {
+      "conversationEnd": "2023-04-02T04:14:09.853Z",
+      "conversationId": "a3066a20-8445-4db5-a4c3-221520a5b900",
+      "conversationStart": "2023-04-02T04:07:29.608Z",
+      "divisionIds": [
+        "a667baa4-2d09-4fd8-9973-776aa67fdfc3"
+      ],
+      "originatingDirection": "inbound",
+      "participants": [
+        {
+          "externalContactId": "a9715a62-6f8a-495e-a30a-4e7985f2ad99",
+          "externalOrganizationId": "bcfd1fc0-ad9b-41a0-9ecd-1ce52d146e04",
+          "participantId": "f67a124b-fd72-403a-b60c-b2498cf25040",
+          "participantName": "Lawrence Drayton",
+          "purpose": "customer",
+          "sessions": [
+            {
+              "activeSkillIds": [
+                "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+              ],
+              "agentBullseyeRing": 1,
+              "direction": "inbound",
+              "mediaType": "chat",
+              "provider": "PureCloud Webchat v2",
+              "requestedRoutings": [
+                "Standard"
+              ],
+              "routingRing": 1,
+              "selectedAgentId": "f851877d-bcc6-4af7-85d3-407ab06a2081",
+              "sessionId": "0dbebbce-2c24-490e-9376-78e3da563cab",
+              "usedRouting": "Standard",
+              "metrics": [
+                {
+                  "emitDate": "2023-04-02T04:07:29.608Z",
+                  "name": "nConnected",
+                  "value": 1
+                },
+                {
+                  "emitDate": "2023-04-02T04:13:39.232Z",
+                  "name": "tConnected",
+                  "value": 369624
+                }
+              ],
+              "segments": [
+                {
+                  "conference": false,
+                  "disconnectType": "client",
+                  "queueId": "657973ab-e7c3-4db9-a9be-42d2826508cb",
+                  "requestedRoutingSkillIds": [
+                    "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+                  ],
+                  "segmentEnd": "2023-04-02T04:13:39.232Z",
+                  "segmentStart": "2023-04-02T04:07:29.608Z",
+                  "segmentType": "interact"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "participantId": "1e458ced-45c2-45d8-9850-325531bfd6be",
+          "purpose": "workflow",
+          "sessions": [
+            {
+              "direction": "inbound",
+              "mediaType": "chat",
+              "peerId": "0dbebbce-2c24-490e-9376-78e3da563cab",
+              "provider": "PureCloud Webchat v2",
+              "remote": "Lawrence Drayton",
+              "sessionId": "26d96819-b099-4357-99db-b53b3c3c27e9",
+              "flow": {
+                "endingLanguage": "en-au",
+                "entryReason": "PureCloud Webchat v2",
+                "entryType": "direct",
+                "exitReason": "TRANSFER",
+                "flowId": "42005410-240f-49e5-8df0-7b99d36207fc",
+                "flowName": "Inbound Chat Flow",
+                "flowType": "INBOUNDCHAT",
+                "flowVersion": "27.0",
+                "startingLanguage": "en-au",
+                "transferTargetAddress": "657973ab-e7c3-4db9-a9be-42d2826508cb",
+                "transferTargetName": "Activation",
+                "transferType": "ACD"
+              },
+              "metrics": [
+                {
+                  "emitDate": "2023-04-02T04:07:29.609Z",
+                  "name": "nFlow",
+                  "value": 1
+                },
+                {
+                  "emitDate": "2023-04-02T04:07:35.893Z",
+                  "name": "tFlow",
+                  "value": 6284
+                },
+                {
+                  "emitDate": "2023-04-02T04:07:35.893Z",
+                  "name": "tFlowExit",
+                  "value": 6284
+                }
+              ],
+              "segments": [
+                {
+                  "conference": false,
+                  "disconnectType": "transfer",
+                  "segmentEnd": "2023-04-02T04:07:35.893Z",
+                  "segmentStart": "2023-04-02T04:07:29.609Z",
+                  "segmentType": "interact"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "participantId": "a37f7e55-541e-480f-8d90-37a0162518a6",
+          "participantName": "Activation",
+          "purpose": "acd",
+          "sessions": [
+            {
+              "activeSkillIds": [
+                "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+              ],
+              "agentBullseyeRing": 1,
+              "direction": "inbound",
+              "flowInType": "workflow",
+              "mediaType": "chat",
+              "peerId": "0dbebbce-2c24-490e-9376-78e3da563cab",
+              "provider": "PureCloud Webchat v2",
+              "remote": "Lawrence Drayton",
+              "requestedRoutings": [
+                "Standard"
+              ],
+              "routingRing": 1,
+              "selectedAgentId": "f851877d-bcc6-4af7-85d3-407ab06a2081",
+              "sessionId": "9fd42d5d-1cc9-4195-b1d3-ad57bc7f87b8",
+              "metrics": [
+                {
+                  "emitDate": "2023-04-02T04:07:35.895Z",
+                  "name": "nOffered",
+                  "value": 1
+                },
+                {
+                  "emitDate": "2023-04-02T04:07:55.420Z",
+                  "name": "tAcd",
+                  "value": 19525
+                }
+              ],
+              "segments": [
+                {
+                  "conference": false,
+                  "disconnectType": "transfer",
+                  "queueId": "657973ab-e7c3-4db9-a9be-42d2826508cb",
+                  "requestedRoutingSkillIds": [
+                    "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+                  ],
+                  "segmentEnd": "2023-04-02T04:07:55.420Z",
+                  "segmentStart": "2023-04-02T04:07:35.895Z",
+                  "segmentType": "interact",
+                  "scoredAgents": [
+                    {
+                      "agentScore": 100,
+                      "scoredAgentId": "f851877d-bcc6-4af7-85d3-407ab06a2081"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "participantId": "306d7db2-6038-47e8-bf7a-23dd4387d436",
+          "participantName": "Alex",
+          "purpose": "agent",
+          "userId": "f0d81e8e-058b-4ced-8f39-fc6c2a8c192d",
+          "sessions": [
+            {
+              "activeSkillIds": [
+                "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+              ],
+              "agentBullseyeRing": 1,
+              "direction": "inbound",
+              "mediaType": "chat",
+              "peerId": "0dbebbce-2c24-490e-9376-78e3da563cab",
+              "provider": "PureCloud Webchat v2",
+              "remote": "Lawrence Drayton",
+              "requestedRoutings": [
+                "Standard"
+              ],
+              "routingRing": 1,
+              "selectedAgentId": "f0d81e8e-058b-4ced-8f39-fc6c2a8c192d",
+              "sessionId": "106f7fc7-ce82-47ba-afe6-0b4311d12e66",
+              "metrics": [
+                {
+                  "emitDate": "2023-04-02T04:07:44.135Z",
+                  "name": "tAlert",
+                  "value": 8075
+                },
+                {
+                  "emitDate": "2023-04-02T04:07:44.135Z",
+                  "name": "tNotResponding",
+                  "value": 8075
+                }
+              ],
+              "segments": [
+                {
+                  "conference": false,
+                  "disconnectType": "client",
+                  "queueId": "657973ab-e7c3-4db9-a9be-42d2826508cb",
+                  "requestedRoutingSkillIds": [
+                    "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+                  ],
+                  "segmentEnd": "2023-04-02T04:07:44.135Z",
+                  "segmentStart": "2023-04-02T04:07:36.060Z",
+                  "segmentType": "alert"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "participantId": "0daad8ea-92bc-424f-a129-6d2fee1b1fa2",
+          "participantName": "Sarah",
+          "purpose": "agent",
+          "userId": "f851877d-bcc6-4af7-85d3-407ab06a2081",
+          "sessions": [
+            {
+              "activeSkillIds": [
+                "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+              ],
+              "agentBullseyeRing": 1,
+              "direction": "inbound",
+              "mediaType": "chat",
+              "peerId": "0dbebbce-2c24-490e-9376-78e3da563cab",
+              "provider": "PureCloud Webchat v2",
+              "remote": "Lawrence Drayton",
+              "requestedRoutings": [
+                "Standard"
+              ],
+              "routingRing": 1,
+              "selectedAgentId": "f851877d-bcc6-4af7-85d3-407ab06a2081",
+              "sessionId": "2d0e236e-8c2b-4afa-981f-e482784e4230",
+              "usedRouting": "Standard",
+              "metrics": [
+                {
+                  "emitDate": "2023-04-02T04:07:55.421Z",
+                  "name": "tAlert",
+                  "value": 11168
+                },
+                {
+                  "emitDate": "2023-04-02T04:07:55.421Z",
+                  "name": "tAnswered",
+                  "value": 19525
+                },
+                {
+                  "emitDate": "2023-04-02T04:08:34.593Z",
+                  "name": "tTalk",
+                  "value": 39172
+                },
+                {
+                  "emitDate": "2023-04-02T04:08:40.901Z",
+                  "name": "tHeld",
+                  "value": 6308
+                },
+                {
+                  "emitDate": "2023-04-02T04:08:52.352Z",
+                  "name": "tTalk",
+                  "value": 11451
+                },
+                {
+                  "emitDate": "2023-04-02T04:10:16.304Z",
+                  "name": "tHeld",
+                  "value": 83952
+                },
+                {
+                  "emitDate": "2023-04-02T04:10:28.784Z",
+                  "name": "tTalk",
+                  "value": 12480
+                },
+                {
+                  "emitDate": "2023-04-02T04:10:53.817Z",
+                  "name": "tHeld",
+                  "value": 25033
+                },
+                {
+                  "emitDate": "2023-04-02T04:11:21.906Z",
+                  "name": "tTalk",
+                  "value": 28089
+                },
+                {
+                  "emitDate": "2023-04-02T04:13:39.233Z",
+                  "name": "tHeld",
+                  "value": 137327
+                },
+                {
+                  "emitDate": "2023-04-02T04:13:39.233Z",
+                  "name": "tHeldComplete",
+                  "value": 252620
+                },
+                {
+                  "emitDate": "2023-04-02T04:13:39.233Z",
+                  "name": "tTalkComplete",
+                  "value": 91192
+                },
+                {
+                  "emitDate": "2023-04-02T04:14:09.853Z",
+                  "name": "tAcw",
+                  "value": 30620
+                },
+                {
+                  "emitDate": "2023-04-02T04:14:09.853Z",
+                  "name": "tHandle",
+                  "value": 374432
+                }
+              ],
+              "segments": [
+                {
+                  "conference": false,
+                  "queueId": "657973ab-e7c3-4db9-a9be-42d2826508cb",
+                  "requestedRoutingSkillIds": [
+                    "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+                  ],
+                  "segmentEnd": "2023-04-02T04:07:55.421Z",
+                  "segmentStart": "2023-04-02T04:07:44.253Z",
+                  "segmentType": "alert"
+                },
+                {
+                  "conference": false,
+                  "queueId": "657973ab-e7c3-4db9-a9be-42d2826508cb",
+                  "requestedRoutingSkillIds": [
+                    "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+                  ],
+                  "segmentEnd": "2023-04-02T04:08:34.593Z",
+                  "segmentStart": "2023-04-02T04:07:55.421Z",
+                  "segmentType": "interact"
+                },
+                {
+                  "conference": false,
+                  "queueId": "657973ab-e7c3-4db9-a9be-42d2826508cb",
+                  "requestedRoutingSkillIds": [
+                    "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+                  ],
+                  "segmentEnd": "2023-04-02T04:08:40.901Z",
+                  "segmentStart": "2023-04-02T04:08:34.593Z",
+                  "segmentType": "hold"
+                },
+                {
+                  "conference": false,
+                  "queueId": "657973ab-e7c3-4db9-a9be-42d2826508cb",
+                  "requestedRoutingSkillIds": [
+                    "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+                  ],
+                  "segmentEnd": "2023-04-02T04:08:52.352Z",
+                  "segmentStart": "2023-04-02T04:08:40.901Z",
+                  "segmentType": "interact"
+                },
+                {
+                  "conference": false,
+                  "queueId": "657973ab-e7c3-4db9-a9be-42d2826508cb",
+                  "requestedRoutingSkillIds": [
+                    "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+                  ],
+                  "segmentEnd": "2023-04-02T04:10:16.304Z",
+                  "segmentStart": "2023-04-02T04:08:52.352Z",
+                  "segmentType": "hold"
+                },
+                {
+                  "conference": false,
+                  "queueId": "657973ab-e7c3-4db9-a9be-42d2826508cb",
+                  "requestedRoutingSkillIds": [
+                    "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+                  ],
+                  "segmentEnd": "2023-04-02T04:10:28.784Z",
+                  "segmentStart": "2023-04-02T04:10:16.304Z",
+                  "segmentType": "interact"
+                },
+                {
+                  "conference": false,
+                  "queueId": "657973ab-e7c3-4db9-a9be-42d2826508cb",
+                  "requestedRoutingSkillIds": [
+                    "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+                  ],
+                  "segmentEnd": "2023-04-02T04:10:53.817Z",
+                  "segmentStart": "2023-04-02T04:10:28.784Z",
+                  "segmentType": "hold"
+                },
+                {
+                  "conference": false,
+                  "queueId": "657973ab-e7c3-4db9-a9be-42d2826508cb",
+                  "requestedRoutingSkillIds": [
+                    "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+                  ],
+                  "segmentEnd": "2023-04-02T04:11:21.906Z",
+                  "segmentStart": "2023-04-02T04:10:53.817Z",
+                  "segmentType": "interact"
+                },
+                {
+                  "conference": false,
+                  "disconnectType": "peer",
+                  "queueId": "657973ab-e7c3-4db9-a9be-42d2826508cb",
+                  "requestedRoutingSkillIds": [
+                    "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+                  ],
+                  "segmentEnd": "2023-04-02T04:13:39.233Z",
+                  "segmentStart": "2023-04-02T04:11:21.906Z",
+                  "segmentType": "hold"
+                },
+                {
+                  "conference": false,
+                  "disconnectType": "peer",
+                  "queueId": "657973ab-e7c3-4db9-a9be-42d2826508cb",
+                  "requestedRoutingSkillIds": [
+                    "c5315d2b-5bee-49b0-8f05-4132ac1c9d35"
+                  ],
+                  "segmentEnd": "2023-04-02T04:14:09.853Z",
+                  "segmentStart": "2023-04-02T04:13:39.233Z",
+                  "segmentType": "wrapup",
+                  "wrapUpCode": "39469254-c69f-49ba-b540-716e5781aaa5"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conversationEnd": "2023-04-02T04:15:33.023Z",
+      "conversationId": "bc03a597-b2be-4449-ae76-951f732b74ab",
+      "conversationStart": "2023-04-02T04:14:45.072Z",
+      "divisionIds": [
+        "a667baa4-2d09-4fd8-9973-776aa67fdfc3"
+      ],
+      "originatingDirection": "inbound",
+      "participants": [
+        {
+          "externalContactId": "a9715a62-6f8a-495e-a30a-4e7985f2ad99",
+          "externalOrganizationId": "bcfd1fc0-ad9b-41a0-9ecd-1ce52d146e04",
+          "participantId": "bdcb5251-9247-4115-952e-c57818fb918d",
+          "participantName": "Lawrence Drayton",
+          "purpose": "customer",
+          "sessions": [
+            {
+              "direction": "inbound",
+              "mediaType": "chat",
+              "provider": "PureCloud Webchat v2",
+              "sessionId": "9609cc8f-b6d5-4744-8e5e-3905e11e6b52",
+              "metrics": [
+                {
+                  "emitDate": "2023-04-02T04:14:45.072Z",
+                  "name": "nConnected",
+                  "value": 1
+                },
+                {
+                  "emitDate": "2023-04-02T04:15:33.021Z",
+                  "name": "tConnected",
+                  "value": 47949
+                }
+              ],
+              "segments": [
+                {
+                  "conference": false,
+                  "disconnectType": "client",
+                  "queueId": "eec43b85-4c61-4ecd-9bf7-1de34f1556da",
+                  "segmentEnd": "2023-04-02T04:15:33.021Z",
+                  "segmentStart": "2023-04-02T04:14:45.072Z",
+                  "segmentType": "interact"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "participantId": "3d392c2d-8381-4ea8-a75a-16e28bd889b1",
+          "purpose": "workflow",
+          "sessions": [
+            {
+              "direction": "inbound",
+              "mediaType": "chat",
+              "peerId": "9609cc8f-b6d5-4744-8e5e-3905e11e6b52",
+              "provider": "PureCloud Webchat v2",
+              "remote": "Lawrence Drayton",
+              "sessionId": "0420fcc0-1d7c-4545-b0aa-a21eb0a475e7",
+              "flow": {
+                "endingLanguage": "en-au",
+                "entryReason": "PureCloud Webchat v2",
+                "entryType": "direct",
+                "exitReason": "TRANSFER",
+                "flowId": "42005410-240f-49e5-8df0-7b99d36207fc",
+                "flowName": "Inbound Chat Flow",
+                "flowType": "INBOUNDCHAT",
+                "flowVersion": "27.0",
+                "startingLanguage": "en-au",
+                "transferTargetAddress": "eec43b85-4c61-4ecd-9bf7-1de34f1556da",
+                "transferTargetName": "TEST QUEUE",
+                "transferType": "ACD"
+              },
+              "metrics": [
+                {
+                  "emitDate": "2023-04-02T04:14:45.074Z",
+                  "name": "nFlow",
+                  "value": 1
+                },
+                {
+                  "emitDate": "2023-04-02T04:14:49.766Z",
+                  "name": "tFlow",
+                  "value": 4692
+                },
+                {
+                  "emitDate": "2023-04-02T04:14:49.766Z",
+                  "name": "tFlowExit",
+                  "value": 4692
+                }
+              ],
+              "segments": [
+                {
+                  "conference": false,
+                  "disconnectType": "transfer",
+                  "segmentEnd": "2023-04-02T04:14:49.766Z",
+                  "segmentStart": "2023-04-02T04:14:45.074Z",
+                  "segmentType": "interact"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "participantId": "ac5e8a0f-d1a2-4e1d-8665-cf9aa328cb2c",
+          "participantName": "TEST QUEUE",
+          "purpose": "acd",
+          "sessions": [
+            {
+              "direction": "inbound",
+              "flowInType": "workflow",
+              "mediaType": "chat",
+              "peerId": "9609cc8f-b6d5-4744-8e5e-3905e11e6b52",
+              "provider": "PureCloud Webchat v2",
+              "remote": "Lawrence Drayton",
+              "sessionId": "e3b716cb-adf1-416c-863a-8222e459e295",
+              "metrics": [
+                {
+                  "emitDate": "2023-04-02T04:14:49.767Z",
+                  "name": "nOffered",
+                  "value": 1
+                },
+                {
+                  "emitDate": "2023-04-02T04:15:33.023Z",
+                  "name": "tAbandon",
+                  "value": 43256
+                },
+                {
+                  "emitDate": "2023-04-02T04:15:33.023Z",
+                  "name": "tAcd",
+                  "value": 43256
+                }
+              ],
+              "segments": [
+                {
+                  "conference": false,
+                  "disconnectType": "peer",
+                  "queueId": "eec43b85-4c61-4ecd-9bf7-1de34f1556da",
+                  "segmentEnd": "2023-04-02T04:15:33.023Z",
+                  "segmentStart": "2023-04-02T04:14:49.767Z",
+                  "segmentType": "interact"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "conversationEnd": "2023-04-02T04:22:34.385Z",
+      "conversationId": "0df3f84d-0684-4888-b458-cacf557dcbaa",
+      "conversationStart": "2023-04-02T04:22:19.146Z",
+      "divisionIds": [
+        "a667baa4-2d09-4fd8-9973-776aa67fdfc3"
+      ],
+      "originatingDirection": "inbound",
+      "participants": [
+        {
+          "externalContactId": "a9715a62-6f8a-495e-a30a-4e7985f2ad99",
+          "externalOrganizationId": "bcfd1fc0-ad9b-41a0-9ecd-1ce52d146e04",
+          "participantId": "d35a06ec-6767-4dc8-9f18-9d96322df747",
+          "participantName": "Lawrence Drayton",
+          "purpose": "customer",
+          "sessions": [
+            {
+              "direction": "inbound",
+              "mediaType": "chat",
+              "provider": "PureCloud Webchat v2",
+              "sessionId": "6b9567cc-a3e7-419f-92e1-0972e1e40058",
+              "metrics": [
+                {
+                  "emitDate": "2023-04-02T04:22:19.146Z",
+                  "name": "nConnected",
+                  "value": 1
+                },
+                {
+                  "emitDate": "2023-04-02T04:22:34.383Z",
+                  "name": "tConnected",
+                  "value": 15237
+                }
+              ],
+              "segments": [
+                {
+                  "conference": false,
+                  "disconnectType": "client",
+                  "queueId": "eec43b85-4c61-4ecd-9bf7-1de34f1556da",
+                  "segmentEnd": "2023-04-02T04:22:34.383Z",
+                  "segmentStart": "2023-04-02T04:22:19.146Z",
+                  "segmentType": "interact"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "participantId": "e7df517e-3b96-4cc0-899b-446ff261437c",
+          "purpose": "workflow",
+          "sessions": [
+            {
+              "direction": "inbound",
+              "mediaType": "chat",
+              "peerId": "6b9567cc-a3e7-419f-92e1-0972e1e40058",
+              "provider": "PureCloud Webchat v2",
+              "remote": "Lawrence Drayton",
+              "sessionId": "65f04a48-ac65-4d2b-9a45-691de47d0817",
+              "flow": {
+                "endingLanguage": "en-au",
+                "entryReason": "PureCloud Webchat v2",
+                "entryType": "direct",
+                "exitReason": "TRANSFER",
+                "flowId": "42005410-240f-49e5-8df0-7b99d36207fc",
+                "flowName": "Inbound Chat Flow",
+                "flowType": "INBOUNDCHAT",
+                "flowVersion": "27.0",
+                "startingLanguage": "en-au",
+                "transferTargetAddress": "eec43b85-4c61-4ecd-9bf7-1de34f1556da",
+                "transferTargetName": "TEST QUEUE",
+                "transferType": "ACD"
+              },
+              "metrics": [
+                {
+                  "emitDate": "2023-04-02T04:22:19.148Z",
+                  "name": "nFlow",
+                  "value": 1
+                },
+                {
+                  "emitDate": "2023-04-02T04:22:23.700Z",
+                  "name": "tFlow",
+                  "value": 4552
+                },
+                {
+                  "emitDate": "2023-04-02T04:22:23.700Z",
+                  "name": "tFlowExit",
+                  "value": 4552
+                }
+              ],
+              "segments": [
+                {
+                  "conference": false,
+                  "disconnectType": "transfer",
+                  "segmentEnd": "2023-04-02T04:22:23.700Z",
+                  "segmentStart": "2023-04-02T04:22:19.148Z",
+                  "segmentType": "interact"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "participantId": "95ad8dc8-7bad-4a43-8bfd-b6d14d417fed",
+          "participantName": "TEST QUEUE",
+          "purpose": "acd",
+          "sessions": [
+            {
+              "direction": "inbound",
+              "flowInType": "workflow",
+              "mediaType": "chat",
+              "peerId": "6b9567cc-a3e7-419f-92e1-0972e1e40058",
+              "provider": "PureCloud Webchat v2",
+              "remote": "Lawrence Drayton",
+              "sessionId": "3a4d905e-f3be-4ea5-aaaf-c24f74c915c7",
+              "metrics": [
+                {
+                  "emitDate": "2023-04-02T04:22:23.702Z",
+                  "name": "nOffered",
+                  "value": 1
+                },
+                {
+                  "emitDate": "2023-04-02T04:22:34.385Z",
+                  "name": "tAbandon",
+                  "value": 10683
+                },
+                {
+                  "emitDate": "2023-04-02T04:22:34.385Z",
+                  "name": "tAcd",
+                  "value": 10683
+                }
+              ],
+              "segments": [
+                {
+                  "conference": false,
+                  "disconnectType": "peer",
+                  "queueId": "eec43b85-4c61-4ecd-9bf7-1de34f1556da",
+                  "segmentEnd": "2023-04-02T04:22:34.385Z",
+                  "segmentStart": "2023-04-02T04:22:23.702Z",
+                  "segmentType": "interact"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "totalHits": 12
+}
