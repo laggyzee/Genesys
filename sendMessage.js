@@ -89,7 +89,7 @@ async function getExternalContactId(conversationId) {
   
     const body = {
       "interval": `${startDate}/${endDate}`,
-      "order": "asc",
+      "order": "desc",
       "orderBy": "conversationStart",
       "paging": {
         "pageSize": "3",
@@ -110,13 +110,71 @@ async function getExternalContactId(conversationId) {
       ]
     };
   
-    apiInstance.postAnalyticsConversationsDetailsQuery(body)
-      .then((data) => {
-        console.log(`postAnalyticsConversationsDetailsQuery success! data: ${JSON.stringify(data, null, 2)}`);
-      })
-      .catch((err) => {
-        console.log("There was a failure calling postAnalyticsConversationsDetailsQuery");
-        console.error(err);
-      });
+  apiInstance.postAnalyticsConversationsDetailsQuery(body)
+    .then((data) => {
+      console.log(`postAnalyticsConversationsDetailsQuery success! data: ${JSON.stringify(data, null, 2)}`);
+
+      // Process and display the data in the table
+      displayConversationsInTable(data.conversations);
+    })
+    .catch((err) => {
+      console.log("There was a failure calling postAnalyticsConversationsDetailsQuery");
+      console.error(err);
+    });
+}
+
+async function fetchWrapUpCodeName(codeId) {
+    const routingApiInstance = new platformClient.RoutingApi();
+  
+    try {
+      const wrapUpData = await routingApiInstance.getRoutingWrapupcode(codeId);
+      return wrapUpData.name;
+    } catch (err) {
+      console.log("There was a failure calling getRoutingWrapupcode");
+      console.error(err);
+      return '-';
+    }
   }
+  
+  async function displayConversationsInTable(conversations) {
+    const tableBody = document.querySelector('#conversations-table tbody');
+    tableBody.innerHTML = ''; // Clear the table body
+  
+    for (const conversation of conversations) {
+      const customerParticipant = conversation.participants.find(participant => participant.purpose === 'customer') || 
+                                   conversation.participants.find(participant => participant.purpose === 'external');
+      const agentParticipant = conversation.participants.find(participant => participant.purpose === 'agent');
+  
+      if (!customerParticipant || !agentParticipant) {
+        console.error('Missing customer/external or agent participant for conversation:', conversation.conversationId);
+        continue; // Skip this conversation
+      }
+  
+      const mediaType = customerParticipant.sessions[0].mediaType;
+      const interactionStarted = formatDate(conversation.conversationStart);
+  
+      // Get wrap up data from the agent participant's segments
+      const wrapUpSegment = agentParticipant.sessions[0].segments.find(segment => segment.segmentType === 'wrapup');
+      const lastWrapUpCode = wrapUpSegment ? wrapUpSegment.wrapUpCode || '-' : '-';
+      const wrapUpNotes = wrapUpSegment ? wrapUpSegment.wrapUpNote || '-' : '-';
+  
+      // Get the human-readable wrap-up code
+      const wrapUpCodeName = await fetchWrapUpCodeName(lastWrapUpCode);
+  
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${mediaType}</td>
+        <td>${interactionStarted}</td>
+        <td>${wrapUpCodeName}</td>
+        <td>${wrapUpNotes}</td>
+      `;
+  
+      tableBody.appendChild(row);
+    }
+  }
+  
+  
+  
+  
+  
   
