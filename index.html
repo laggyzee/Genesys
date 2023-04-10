@@ -51,7 +51,7 @@
       </tbody>
     </table>
   </gux-table-beta>
-  
+
 
 
   <p>
@@ -61,52 +61,40 @@
   <div class="quick-sends-shadow">
     <h2 class="quick-sends__title">Quick Sends</h2>
     <div class="quick-sends__buttons" id="quickSendsButtons">
-      <gux-button data-id="cbed3d48-a6a0-4253-ba5b-02ae4f2cf0e7" accent="primary"
-        style="min-width: 150px;">
+      <gux-button data-id="cbed3d48-a6a0-4253-ba5b-02ae4f2cf0e7" accent="primary" style="min-width: 150px;">
         <gux-icon icon-name="message-reply"></gux-icon><span>Away Message</span>
       </gux-button>
-      <gux-button data-id="20b43db2-df7f-4168-9d95-9d403b70f527" accent="primary"
-        style="min-width: 150px;">
+      <gux-button data-id="20b43db2-df7f-4168-9d95-9d403b70f527" accent="primary" style="min-width: 150px;">
         <gux-icon icon-name="message-reply"></gux-icon><span>2FA + GreenID</span>
       </gux-button>
-      <gux-button data-id="ea830f74-c5fb-42b0-bc4b-ef3b5f260c63" accent="primary"
-        style="min-width: 150px;">
+      <gux-button data-id="ea830f74-c5fb-42b0-bc4b-ef3b5f260c63" accent="primary" style="min-width: 150px;">
         <gux-icon icon-name="message-reply"></gux-icon><span>Hold Message</span>
       </gux-button>
-      <gux-button data-id="63da658d-9f7d-4577-8104-8abbd6f53765" accent="primary"
-        style="min-width: 150px;">
+      <gux-button data-id="63da658d-9f7d-4577-8104-8abbd6f53765" accent="primary" style="min-width: 150px;">
         <gux-icon icon-name="message-reply"></gux-icon><span>Wrap Up</span>
       </gux-button>
-      <gux-button data-id="7cb2cdc2-f765-4217-8d92-123bf3225b53" accent="primary"
-        style="min-width: 150px;">
+      <gux-button data-id="7cb2cdc2-f765-4217-8d92-123bf3225b53" accent="primary" style="min-width: 150px;">
         <gux-icon icon-name="message-reply"></gux-icon><span>2FA</span>
       </gux-button>
-      <gux-button data-id="9bd4b971-8583-47f9-ac11-0547d6b55bbc" accent="primary"
-        style="min-width: 150px;">
+      <gux-button data-id="9bd4b971-8583-47f9-ac11-0547d6b55bbc" accent="primary" style="min-width: 150px;">
         <gux-icon icon-name="message-reply"></gux-icon><span>Port Number</span>
       </gux-button>
-      <gux-button data-id="b443dc07-8d7e-4fb8-a7fa-51dd65888543" accent="primary"
-        style="min-width: 150px;">
+      <gux-button data-id="b443dc07-8d7e-4fb8-a7fa-51dd65888543" accent="primary" style="min-width: 150px;">
         <gux-icon icon-name="message-reply"></gux-icon><span>APN iPhone</span>
       </gux-button>
-      <gux-button data-id="163966cd-b8d8-4d07-93cd-9dc9d563de14" accent="primary"
-        style="min-width: 150px;">
+      <gux-button data-id="163966cd-b8d8-4d07-93cd-9dc9d563de14" accent="primary" style="min-width: 150px;">
         <gux-icon icon-name="message-reply"></gux-icon><span>APN Android</span>
       </gux-button>
-      <gux-button data-id="2ee103b1-aa93-420d-bf64-1b46259c34b0" accent="primary"
-        style="min-width: 150px;">
+      <gux-button data-id="2ee103b1-aa93-420d-bf64-1b46259c34b0" accent="primary" style="min-width: 150px;">
         <gux-icon icon-name="message-reply"></gux-icon><span>How to Activate</span>
       </gux-button>
-      <gux-button data-id="5d65b291-1af5-491e-a80a-1d8f64b8bcf2" accent="primary"
-        style="min-width: 150px;">
+      <gux-button data-id="5d65b291-1af5-491e-a80a-1d8f64b8bcf2" accent="primary" style="min-width: 150px;">
         <gux-icon icon-name="message-reply"></gux-icon><span>How to Recharge</span>
       </gux-button>
-      <gux-button data-id="ae5e2427-9875-4185-9b21-f488e4719ffa" accent="primary"
-        style="min-width: 150px;">
+      <gux-button data-id="ae5e2427-9875-4185-9b21-f488e4719ffa" accent="primary" style="min-width: 150px;">
         <gux-icon icon-name="message-reply"></gux-icon><span>Add Extras</span>
       </gux-button>
-      <gux-button data-id="ae5e2427-9875-4185-9b21-f488e4719ffa" accent="primary"
-        style="min-width: 150px;">
+      <gux-button data-id="ae5e2427-9875-4185-9b21-f488e4719ffa" accent="primary" style="min-width: 150px;">
         <gux-icon icon-name="message-reply"></gux-icon><span>TEST</span>
       </gux-button>
 
@@ -123,84 +111,83 @@
           </gux-listbox>
         </gux-dropdown>
         <gux-badge-beta id="outcomeBadge" bold color="red">Outcome Not Set</gux-badge-beta>
-      </gux-button>
-      <div>
-        <div class="button-container">
-          <gux-button id="external-contact-btn" accent="primary" style="margin-top: 10px;" onclick="fetchData(conversationId)">
-            <span>Get Previous Interaction Details</span>
-          </gux-button>
-        </div>
-        </gux-button>        
         </gux-button>
-        <gux-table-beta compact>
-          <table id="conversations-table" slot="data">
-            <thead>
-              <tr>
-                <th>Media Type</th>
-                <th>Interaction Started</th>
-                <th>Last Wrap Up Code</th>
-                <th>Wrap Up Notes</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </gux-table-beta>        
+        <div>
+          <div class="button-container">
+            <gux-button id="external-contact-btn" accent="primary" style="margin-top: 10px;"
+              onclick="fetchData(conversationId)">
+              <span>Get Previous Interaction Details</span>
+            </gux-button>
+          </div>
+          </gux-button>
+          <gux-table-beta compact>
+            <table id="conversations-table" slot="data">
+              <thead>
+                <tr>
+                  <th>Media Type</th>
+                  <th>Interaction Started</th>
+                  <th>Last Wrap Up Code</th>
+                  <th>Wrap Up Notes</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </gux-table-beta>
+        </div>
       </div>
-      </div>
-    </div> 
+    </div>
 
-
-  <script>
-    function getUrlParam(paramName) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(paramName);
-    }
-
-    function formatDate(dateString) {
-      const monthNames = [
-        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-      ];
-
-      const date = new Date(dateString);
-      const day = date.getDate();
-      const monthIndex = date.getMonth();
-      const year = date.getFullYear();
-
-      return `${monthNames[monthIndex]} ${day}, ${year}`;
-    }
-
-    function fillTableValues() {
-      const fullName = getUrlParam('fullName');
-      const eMail = getUrlParam('eMail');
-      const MSN = getUrlParam('MSN');
-      const dob = getUrlParam('dob');
-
-      if (fullName) {
-        document.getElementById('fullNameCell').innerText = fullName;
+    <script>
+      function getUrlParam(paramName) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(paramName);
       }
-      if (eMail) {
-        document.getElementById('eMailCell').innerText = eMail;
-      }
-      if (MSN) {
-        document.getElementById('MSNCell').innerText = MSN;
-      }
-      if (dob) {
-        const formattedDob = formatDate(dob);
-        document.getElementById('dobCell').innerText = formattedDob;
-      }
-    }
 
-  </script>
+      function formatDate(dateString) {
+        const monthNames = [
+          'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+          'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+        ];
+
+        const date = new Date(dateString);
+        const day = date.getDate();
+        const monthIndex = date.getMonth();
+        const year = date.getFullYear();
+
+        return `${monthNames[monthIndex]} ${day}, ${year}`;
+      }
+
+      function fillTableValues() {
+        const fullName = getUrlParam('fullName');
+        const eMail = getUrlParam('eMail');
+        const MSN = getUrlParam('MSN');
+        const dob = getUrlParam('dob');
+
+        if (fullName) {
+          document.getElementById('fullNameCell').innerText = fullName;
+        }
+        if (eMail) {
+          document.getElementById('eMailCell').innerText = eMail;
+        }
+        if (MSN) {
+          document.getElementById('MSNCell').innerText = MSN;
+        }
+        if (dob) {
+          const formattedDob = formatDate(dob);
+          document.getElementById('dobCell').innerText = formattedDob;
+        }
+      }
+
+    </script>
 
 
-  <p>Communication ID: <span id="communicationId"></span></p>
-  <p>Interaction State: <span id="interactionState"></span></p>
-  <p>Conversation ID: <span id="conversationId"></span></p>
-  <script src="sendWelcome.js"></script>
-  <script src="sendMessage.js"></script>
-  <script src="outcome.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <p>Communication ID: <span id="communicationId"></span></p>
+    <p>Interaction State: <span id="interactionState"></span></p>
+    <p>Conversation ID: <span id="conversationId"></span></p>
+    <script src="sendWelcome.js"></script>
+    <script src="sendMessage.js"></script>
+    <script src="outcome.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
 
 </body>

@@ -92,7 +92,7 @@ async function getExternalContactId(conversationId) {
       "order": "desc",
       "orderBy": "conversationStart",
       "paging": {
-        "pageSize": "3",
+        "pageSize": "10",
         "pageNumber": 1
       },
       "segmentFilters": [
@@ -166,7 +166,7 @@ async function fetchWrapUpCodeName(codeId) {
         <td>${mediaType}</td>
         <td>${interactionStarted}</td>
         <td>${wrapUpCodeName}</td>
-        <td>${wrapUpNotes}</td>
+        <td class="wrap-up-notes">${wrapUpNotes}</td>
       `;
   
       tableBody.appendChild(row);

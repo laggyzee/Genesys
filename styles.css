@@ -52,3 +52,22 @@
     justify-content: center;
   }
   
+  .gux-table-beta {
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  .gux-table-beta th,
+  .gux-table-beta td {
+    padding: 5px 10px;
+  }
+  
+  .wrap-up-notes {
+    max-width: 300px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+  
+  
+  
+  
