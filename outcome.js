@@ -26,7 +26,7 @@ listbox.addEventListener('change', (event) => {
   switch (selectedValue) {
     case 'Query':
       outcome = 'Query Selected';
-      outcomeBadge.color = 'red';
+      outcomeBadge.color = 'green';
       break;
     case 'Escalated':
       outcome = 'Escalated Selected';
