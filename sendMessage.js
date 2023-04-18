@@ -58,58 +58,109 @@ function extractTextFromHTML(htmlString) {
 
 // Add this function to sendMessage.js
 
-async function getExternalContactId(conversationId) {
-    try {
-      const data = await apiInstance.getAnalyticsConversationDetails(conversationId);
-      
-      const customerParticipant = data.participants.find(participant => participant.purpose === 'customer');
-  
-      if (customerParticipant) {
-        const externalContactId = customerParticipant.externalContactId;
-        console.log('External Contact ID:', externalContactId);
-        return externalContactId;
-      } else {
-        console.log('Customer participant not found');
-      }
-    } catch (err) {
-      console.log("There was a failure calling getAnalyticsConversationDetails");
-      console.error(err);
-    }
-  }
-  
+async function getRelatedExternalContactIds(externalContactId) {
+  const apiInstance = new platformClient.ExternalContactsApi();
+  const opts = {
+    "expand": ["externalDataSources"] // [String] | which fields, if any, to expand (externalOrganization,externalDataSources)
+  };
 
-  async function fetchData(conversationId) {
-    const externalContactId = await getExternalContactId(conversationId);
-    getLastThreeConversations(externalContactId);
+  try {
+    const data = await apiInstance.getExternalcontactsContact(externalContactId, opts);
+    const relatedIds = data.externalDataSources.map(dataSource => dataSource.externalContactId);
+    return [externalContactId, ...relatedIds];
+  } catch (err) {
+    console.log("There was a failure calling getExternalcontactsContact");
+    console.error(err);
+    return [externalContactId];
   }
+}
+
+async function getExternalContactId(conversationId) {
+  try {
+    const data = await apiInstance.getAnalyticsConversationDetails(conversationId);
+    const customerParticipant = data.participants.find(participant => participant.purpose === 'customer');
+
+    if (customerParticipant) {
+      const externalContactId = customerParticipant.externalContactId;
+      console.log('External Contact ID:', externalContactId);
+      return getRelatedExternalContactIds(externalContactId);
+    } else {
+      console.log('Customer participant not found');
+    }
+  } catch (err) {
+    console.log("There was a failure calling getAnalyticsConversationDetails");
+    console.error(err);
+  }
+}
+
+async function fetchData(conversationId) {
+  const contactIds = await getExternalContactId(conversationId);
+  getLastThreeConversations(conversationId, contactIds);
+}
+
+async function getExternalContactId(conversationId) {
+  try {
+    const data = await apiInstance.getAnalyticsConversationDetails(conversationId);
+    const customerParticipant = data.participants.find(participant => participant.purpose === 'customer');
+
+    if (customerParticipant) {
+      const externalContactId = customerParticipant.externalContactId;
+      console.log('External Contact ID:', externalContactId);
+      return getRelatedExternalContactIds(externalContactId);
+    } else {
+      console.log('Customer participant not found');
+    }
+  } catch (err) {
+    console.log("There was a failure calling getAnalyticsConversationDetails");
+    console.error(err);
+  }
+}
+
+async function getRelatedExternalContactIds(externalContactId) {
+  const apiInstance = new platformClient.ExternalContactsApi();
+  const opts = {
+    "expand": ["mergeSet"] // [String] | which fields, if any, to expand (externalOrganization,mergeSet)
+  };
+
+  try {
+    const data = await apiInstance.getExternalcontactsContact(externalContactId, opts);
+    const canonicalContactId = data.canonicalContact.id;
+    const mergeSetIds = data.mergeSet.map(item => item.id);
+    return [canonicalContactId, ...mergeSetIds];
+  } catch (err) {
+    console.log("There was a failure calling getExternalcontactsContact");
+    console.error(err);
+    return [externalContactId];
+  }
+}
+
   
-  function getLastThreeConversations(externalContactId) {
-    const endDate = moment().toISOString();
-    const startDate = moment().subtract(29, 'days').toISOString();
-  
-    const body = {
-      "interval": `${startDate}/${endDate}`,
-      "order": "desc",
-      "orderBy": "conversationStart",
-      "paging": {
-        "pageSize": "10",
-        "pageNumber": 1
-      },
-      "segmentFilters": [
-        {
-          "type": "and",
-          "predicates": [
-            {
-              "type": "dimension",
-              "dimension": "externalContactId",
-              "operator": "matches",
-              "value": externalContactId
-            }
-          ]
-        }
-      ]
-    };
-  
+function getLastThreeConversations(conversationId, contactIds) {
+  const endDate = moment().toISOString();
+  const startDate = moment().subtract(29, 'days').toISOString();
+
+  const predicates = contactIds.map(contactId => ({
+    "operator": "matches",
+    "dimension": "externalContactId",
+    "value": contactId
+  }));
+
+  const body = {
+    "interval": `${startDate}/${endDate}`,
+    "order": "desc",
+    "orderBy": "conversationStart",
+    "paging": {
+      "pageSize": 7,
+      "pageNumber": 1
+    },
+    "segmentFilters": [
+      {
+        "type": "or",
+        "predicates": predicates
+      }
+    ]
+  };
+
   apiInstance.postAnalyticsConversationsDetailsQuery(body)
     .then((data) => {
       console.log(`postAnalyticsConversationsDetailsQuery success! data: ${JSON.stringify(data, null, 2)}`);
@@ -122,6 +173,7 @@ async function getExternalContactId(conversationId) {
       console.error(err);
     });
 }
+
 
 async function fetchWrapUpCodeName(codeId) {
     const routingApiInstance = new platformClient.RoutingApi();
