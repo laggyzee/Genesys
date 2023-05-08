@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body onload="start(); fillTableValues()" style="background-color: white;">
+<body onload="start(); fillTableValues(); hideElements()" style="background-color: white;">
 
   <gux-badge-beta bold color="yellow">This feature is in BETA</gux-badge-beta>
 
@@ -58,7 +58,7 @@
 
     <!-- wrap the buttons and heading in a container -->
   </p>
-  <div class="quick-sends-shadow">
+  <div class="">
     <h2 class="quick-sends__title">Quick Sends</h2>
     <div class="quick-sends__buttons" id="quickSendsButtons">
       <gux-button data-id="cbed3d48-a6a0-4253-ba5b-02ae4f2cf0e7" accent="primary" style="min-width: 150px;">
@@ -137,6 +137,7 @@
       </div>
     </div>
 
+
     <script>
       function getUrlParam(paramName) {
         const urlParams = new URLSearchParams(window.location.search);
@@ -178,6 +179,21 @@
         }
       }
 
+      function hideElements() {
+  const gc_messageType = getUrlParam('gc_messageType');
+
+  if (gc_messageType !== 'Message') {
+    const elementsToHide = [
+      document.querySelector('gux-table-beta'),
+      document.querySelector('.quick-sends__buttons'),
+      document.querySelector('.quick-sends__title')
+    ];
+
+    elementsToHide.forEach(element => {
+      element.style.display = 'none';
+    });
+  }
+}
     </script>
 
 
