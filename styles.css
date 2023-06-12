@@ -56,6 +56,9 @@
     width: 100%;
     table-layout: fixed;
   }
+.beta {
+	align-self: stretch;
+}
   
   .gux-table-beta th,
   .gux-table-beta td {
@@ -63,9 +66,9 @@
   }
   
   .wrap-up-notes {
-    max-width: 300px;
-    word-wrap: break-word;
-    white-space: pre-wrap;
+	max-width: 300px;
+	word-wrap: break-word;
+	white-space: pre-wrap;
   }
   
   

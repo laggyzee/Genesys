@@ -22,8 +22,11 @@
 </head>
 
 <body onload="start(); fillTableValues(); hideElements()" style="background-color: white;">
-
-  <gux-badge-beta bold color="yellow">This feature is in BETA</gux-badge-beta>
+  <div class="beta">
+    <gux-badge-beta bold color="yellow">~~~~~This feature is in BETA~~~~~</gux-badge-beta>
+  </div>
+  <p>
+  </p>
 
   <gux-table-beta compact>
     <table slot="data">
@@ -58,23 +61,25 @@
 
     <!-- wrap the buttons and heading in a container -->
   </p>
-  <div class="">
+  <div class="test">
     <h2 class="quick-sends__title">Quick Sends</h2>
     <div class="quick-sends__buttons" id="quickSendsButtons">
       <gux-button data-id="e797b7b5-65da-4d9e-a429-d92d9f99393c" accent="primary" style="min-width: 150px;">
         <gux-icon icon-name="message-reply"></gux-icon><span>Away Message</span>
       </gux-button>
       <gux-button data-id="9b7a9df7-6595-4e81-825c-e155583599f6" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>2FA + GreenID</span><gux-icon icon-name="roster-sms"></gux-icon>
+        <gux-icon icon-name="message-reply"></gux-icon><span>2FA + GreenID</span><gux-icon
+          icon-name="roster-sms"></gux-icon>
       </gux-button>
       <gux-button data-id="90fcddda-06bd-41b5-8e34-94455403ed61" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>2FA + GreenID</span><gux-icon icon-name="roster-email"></gux-icon>
+        <gux-icon icon-name="message-reply"></gux-icon><span>2FA + GreenID</span><gux-icon
+          icon-name="roster-email"></gux-icon>
       </gux-button>
       <gux-button data-id="c0f098db-8408-49fa-b5ad-af5b7734bb08" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>2FA</span></gux-icon><gux-icon icon-name="roster-sms">
+        <gux-icon icon-name="message-reply"></gux-icon><span>2FA</span><gux-icon icon-name="roster-sms"></gux-icon>
       </gux-button>
       <gux-button data-id="400a6b27-bf06-4140-82d4-ae6c7a0fdd96" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon></gux-icon><span>2FA</span><gux-icon icon-name="roster-email">
+        <gux-icon icon-name="message-reply"></gux-icon><span>2FA</span><gux-icon icon-name="roster-email"></gux-icon>
       </gux-button>
       <gux-button data-id="f886c8fa-5304-4cea-97ff-ddf23fbe6400" accent="primary" style="min-width: 150px;">
         <gux-icon icon-name="message-reply"></gux-icon><span>Hold Message</span>
@@ -97,6 +102,9 @@
       <gux-button data-id="f9c84ae1-c481-4f5e-bd82-999265ca8326" accent="primary" style="min-width: 150px;">
         <gux-icon icon-name="message-reply"></gux-icon><span>Add Extras</span>
       </gux-button>
+      <gux-button data-id="4ef1c183-2376-48a1-ac52-796ef7ec7cb3" accent="primary" style="min-width: 150px;">
+        <gux-icon icon-name="message-reply"></gux-icon><span>Goodbye</span>
+      </gux-button>
 
     </div>
     <div class="quick-sends-shadow">
@@ -111,33 +119,27 @@
           </gux-listbox>
         </gux-dropdown>
         <gux-badge-beta id="outcomeBadge" bold color="red">Outcome Not Set</gux-badge-beta>
-        </gux-button>
-        <div>
-          <div class="button-container">
-            <gux-button id="external-contact-btn" accent="primary" style="margin-top: 10px;"
-              onclick="fetchData(conversationId)">
-              <span>Get Previous Interaction Details</span>
-            </gux-button>
-          </div>
-          </gux-button>
-          <gux-table-beta compact>
-            <table id="conversations-table" slot="data">
-              <thead>
-                <tr>
-                  <th>Media Type</th>
-                  <th>Interaction Started</th>
-                  <th>Last Wrap Up Code</th>
-                  <th>Wrap Up Notes</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </gux-table-beta>
-        </div>
       </div>
     </div>
-
-
+    <div class="button-container">
+      <gux-button id="external-contact-btn" accent="primary" style="margin-top: 10px;"
+        onclick="fetchData(conversationId)"> <span>Get Previous Interaction Details</span></gux-button>
+    </div>
+    <gux-table-beta compact>
+      <table id="conversations-table" slot="data">
+        <thead>
+          <tr>
+            <th>Media Type</th>
+            <th>Interaction Started</th>
+            <th>Last Wrap Up Code</th>
+            <th>Wrap Up Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </gux-table-beta>
+    <div> </div>
     <script>
       function getUrlParam(paramName) {
         const urlParams = new URLSearchParams(window.location.search);
@@ -180,20 +182,20 @@
       }
 
       function hideElements() {
-  const gc_messageType = getUrlParam('gc_messageType');
+        const gc_messageType = getUrlParam('gc_messageType');
 
-  if (gc_messageType !== 'Message') {
-    const elementsToHide = [
-      document.querySelector('gux-table-beta'),
-      document.querySelector('.quick-sends__buttons'),
-      document.querySelector('.quick-sends__title')
-    ];
+        if (gc_messageType !== 'Message') {
+          const elementsToHide = [
+            document.querySelector('gux-table-beta'),
+            document.querySelector('.quick-sends__buttons'),
+            document.querySelector('.quick-sends__title')
+          ];
 
-    elementsToHide.forEach(element => {
-      element.style.display = 'none';
-    });
-  }
-}
+          elementsToHide.forEach(element => {
+            element.style.display = 'none';
+          });
+        }
+      }
     </script>
 
 

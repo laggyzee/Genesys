@@ -155,7 +155,7 @@ function getLastThreeConversations(conversationId, contactIds) {
     "order": "desc",
     "orderBy": "conversationStart",
     "paging": {
-      "pageSize": 7,
+      "pageSize": 10,
       "pageNumber": 1
     },
     "segmentFilters": [
