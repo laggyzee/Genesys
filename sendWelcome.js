@@ -6,6 +6,7 @@ let gc_interactionState = getParameterByName('gc_interactionState')
 let gc_conversationId = getParameterByName('gc_conversationId')
 let gc_communicationId = getParameterByName('gc_communicationId')
 let gc_messageType = getParameterByName('gc_messageType')
+let pdr_brand = getParameterByName('pdr_brand')
 let body = {
   textBody: "Hi, Welcome to Coles Mobile. How can I help you today?"
 };
@@ -20,6 +21,7 @@ gc_interactionState ? sessionStorage.setItem('gc_interactionState', gc_interacti
 gc_conversationId ? sessionStorage.setItem('gc_conversationId', gc_conversationId) : gc_conversationId = sessionStorage.getItem('gc_conversationId')
 gc_communicationId ? sessionStorage.setItem('gc_communicationId', gc_communicationId) : gc_communicationId = sessionStorage.getItem('gc_communicationId')
 gc_messageType ? sessionStorage.setItem('gc_messageType', gc_messageType) : gc_messageType = sessionStorage.getItem('gc_messageType')
+pdr_brand ? sessionStorage.setItem('pdr_brand', pdr_brand) : pdr_brand = sessionStorage.getItem('pdr_brand')
 
 let platformClient = require('platformClient')
 const client = platformClient.ApiClient.instance
@@ -47,7 +49,7 @@ async function start() {
 
 
     // Update the textBody with agentFirstName
-    body.textBody = `Hi, Welcome to Coles Mobile. You're speaking with ${agentFirstName}, how can I help you today?`;
+    body.textBody = `Hi, You're speaking with ${agentFirstName}, how can I help you today?`;
 
     console.log(gc_communicationId)
     console.log(gc_conversationId)

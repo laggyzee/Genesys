@@ -101,20 +101,25 @@ async function fetchData(conversationId) {
 async function getExternalContactId(conversationId) {
   try {
     const data = await apiInstance.getAnalyticsConversationDetails(conversationId);
-    const customerParticipant = data.participants.find(participant => participant.purpose === 'customer');
 
-    if (customerParticipant) {
-      const externalContactId = customerParticipant.externalContactId;
-      console.log('External Contact ID:', externalContactId);
-      return getRelatedExternalContactIds(externalContactId);
-    } else {
-      console.log('Customer participant not found');
+    // Go through all participants instead of only looking for 'customer'
+    for (const participant of data.participants) {
+      if (participant.externalContactId) {
+        const externalContactId = participant.externalContactId;
+        console.log('External Contact ID:', externalContactId);
+        return getRelatedExternalContactIds(externalContactId);
+      }
     }
+
+    console.log('External Contact ID not found');
+    return []; // return an empty array when no External Contact ID found
   } catch (err) {
     console.log("There was a failure calling getAnalyticsConversationDetails");
     console.error(err);
+    return []; // return an empty array in case of an error
   }
 }
+
 
 async function getRelatedExternalContactIds(externalContactId) {
   const apiInstance = new platformClient.ExternalContactsApi();
