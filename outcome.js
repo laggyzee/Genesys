@@ -14,8 +14,14 @@ const listbox = document.querySelector('gux-listbox');
 const outcomeBadge = document.querySelector('#outcomeBadge');
 
 // Set the initial value of the outcome variable
-let outcome = 'Outcome Not Set';
+let outcome = sessionStorage.getItem(`outcome_${customerParticipantId}`) || 'Outcome Not Set';
 outcomeBadge.textContent = outcome;
+
+// If there's a saved outcome for the conversation, set it and color the badge green
+if (sessionStorage.getItem(`outcome_${customerParticipantId}`)) {
+  listbox.value = outcome.split(' ')[0]; // Use the first word as the outcome type
+  outcomeBadge.color = 'green';
+}
 
 // Add an event listener to the listbox element
 listbox.addEventListener('change', (event) => {
@@ -36,15 +42,23 @@ listbox.addEventListener('change', (event) => {
       outcome = 'Resolved Selected';
       outcomeBadge.color = 'green';
       break;
-    case 'Unresolved':
-      outcome = 'Unresolved Selected';
+    case 'Unresolved Chat':
+      outcome = 'Unresolved Chat Selected';
+      outcomeBadge.color = 'green';
+      break;
+    case 'Mid Flight':
+      outcome = 'Mid Flight Selected';
       outcomeBadge.color = 'green';
       break;
     default:
       outcome = 'Outcome Not Set';
-      outcomeBadge.color = 'green';
+      outcomeBadge.color = 'red';
       break;
   }
+
+  // Save the selected outcome for the conversation
+  sessionStorage.setItem(`outcome_${customerParticipantId}`, outcome);
+
   outcomeBadge.textContent = outcome;
 
   // Update the participant attributes with the selected outcome
@@ -79,4 +93,3 @@ listbox.addEventListener('change', (event) => {
       console.error(err);
     });
 });
-

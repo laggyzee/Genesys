@@ -70,7 +70,73 @@
 	word-wrap: break-word;
 	white-space: pre-wrap;
   }
-  
-  
-  
+
+/* Custom CSS   */
+body.light {
+  background-color: #F1F3FA;
+}
+body.dark {
+  background-color: rgb(84 84 84);
+}
+.light .portlet {
+  padding: 12px 20px 15px 20px;
+  background-color: #fff;
+}
+.dark .portlet {
+  padding: 12px 20px 15px 20px;
+  background: rgb(42 42 42);
+  color: #d9d9d9 !important;
+}
+.portlet  .portlet-title {
+  padding: 0;
+  font-size: 20px;
+  min-height: 30px;
+}
+.light .portlet > .portlet-title {
+  border-bottom: 1px solid #eee;
+  color: #578ebe;
+}
+.portlet-body {
+  padding-top: 8px;
+}
+.portlet-body ul {
+  padding: 0px;
+}
+.portlet-body ul li {
+  list-style: none;
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+.portlet-body ul li strong {
+  margin-right: 10px;
+}
+.light .portlet > .portlet-body {
+  color: #93a2a9;
+}
+.right-arrow {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+#conversations-table th {
+  border-width: 0 0 1px 0 !important;
+}
+body {
+  margin:15px;
+}
+.extra-details {
+  display: flex;
+  gap: 20px;
+}
+.extra-details > div {
+  flex-grow: 1;
+  text-align: center;
+}
+.light .extra-details h3 {
+  margin-top: 0px;
+  color:#93a2a9;
+}
+.dark .extra-details h3 {
+  color:#d9d9d9;
+}
   
