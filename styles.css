@@ -1,17 +1,29 @@
-/* add a black border around the container */
+:root {
+    --border-color: black;
+    --padding-small: 10px;
+    --padding-medium: 12px 20px 15px 20px;
+    --background-light: #F1F3FA;
+    --background-dark: rgb(84, 84, 84);
+    --background-portlet-light: #fff;
+    --background-portlet-dark: rgb(42, 42, 42);
+    --color-light: #93a2a9;
+    --color-dark: #d9d9d9;
+    --color-portlet-title-light: #578ebe;
+    --box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+/* Container styling */
 .quick-sends {
-    border: 5px solid black;
-    padding: 10px;
+    border: 5px solid var(--border-color);
+    padding: var(--padding-small);
     text-align: center;
-    /* center align the container content */
+    border-radius: 10px;
 }
 
 .quick-sends__title {
-    margin-top: 0;
+    margin: 0 0 1px 0;
     font-weight: bold;
-    margin-bottom: 1px;
     text-align: center;
-    /* add some bottom margin to create spacing between title and buttons */
 }
 
 .quick-sends__buttons {
@@ -21,122 +33,150 @@
     flex-wrap: wrap;
     gap: 5px;
     margin: 5px;
-  }
-  
+}
 
 .alerts {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     gap: 31px;
-    padding: 10px;
+    padding: var(--padding-small);
     overflow: auto;
-    /* something other than visible */
     resize: both;
     border: 1px solid var(--gux-charcoal-grey);
 }
 
 .quick-sends-shadow {
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); /* You can use any shadow style provided in the Genesys web components documentation */
-  }
-  
-  .quick-sends__filter {
+    box-shadow: var(--box-shadow);
+}
+
+.quick-sends__filter {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-  }
+}
 
-  .button-container {
+.button-container {
     display: flex;
     justify-content: center;
-  }
-  
-  .gux-table-beta {
+}
+
+.gux-table-beta {
     width: 100%;
     table-layout: fixed;
-  }
-.beta {
-	align-self: stretch;
 }
-  
-  .gux-table-beta th,
-  .gux-table-beta td {
-    padding: 5px 10px;
-  }
-  
-  .wrap-up-notes {
-	max-width: 300px;
-	word-wrap: break-word;
-	white-space: pre-wrap;
-  }
 
-/* Custom CSS   */
+.gux-table-beta th,
+.gux-table-beta td {
+    padding: 5px 10px;
+}
+
+.beta {
+    align-self: stretch;
+}
+
+.wrap-up-notes {
+    max-width: 300px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+/* Theme-based styling */
 body.light {
-  background-color: #F1F3FA;
+    background-color: var(--background-light);
 }
+
 body.dark {
-  background-color: rgb(84 84 84);
+    background-color: var(--background-dark);
 }
+
 .light .portlet {
-  padding: 12px 20px 15px 20px;
-  background-color: #fff;
+    padding: var(--padding-medium);
+    background-color: var(--background-portlet-light);
+    border-radius: 10px;
 }
+
 .dark .portlet {
-  padding: 12px 20px 15px 20px;
-  background: rgb(42 42 42);
-  color: #d9d9d9 !important;
+    padding: var(--padding-medium);
+    background: var(--background-portlet-dark);
+    color: var(--color-dark) !important;
+    border-radius: 10px;
 }
-.portlet  .portlet-title {
-  padding: 0;
-  font-size: 20px;
-  min-height: 30px;
+
+.portlet .portlet-title {
+    padding: 0;
+    font-size: 20px;
+    min-height: 30px;
 }
+
 .light .portlet > .portlet-title {
-  border-bottom: 1px solid #eee;
-  color: #578ebe;
+    border-bottom: 1px solid #eee;
+    color: var(--color-portlet-title-light);
 }
+
 .portlet-body {
-  padding-top: 8px;
+    padding-top: 8px;
 }
+
 .portlet-body ul {
-  padding: 0px;
+    padding: 0;
 }
+
 .portlet-body ul li {
-  list-style: none;
-  font-size: 15px;
-  padding-bottom: 5px;
+    list-style: none;
+    font-size: 15px;
+    padding-bottom: 5px;
 }
+
 .portlet-body ul li strong {
-  margin-right: 10px;
+    margin-right: 10px;
 }
+
 .light .portlet > .portlet-body {
-  color: #93a2a9;
+    color: var(--color-light);
 }
+
 .right-arrow {
-  font-size: 20px;
-  font-weight: bold;
-  margin-right: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 5px;
 }
+
 #conversations-table th {
-  border-width: 0 0 1px 0 !important;
+    border-width: 0 0 1px 0 !important;
 }
+
 body {
-  margin:15px;
+    margin: 15px;
 }
+
 .extra-details {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
 }
+
 .extra-details > div {
-  flex-grow: 1;
-  text-align: center;
+    flex-grow: 1;
+    text-align: center;
 }
+
 .light .extra-details h3 {
-  margin-top: 0px;
-  color:#93a2a9;
+    margin-top: 0;
+    color: var(--color-light);
 }
+
 .dark .extra-details h3 {
-  color:#d9d9d9;
+    color: var(--color-dark);
 }
-  
+
+/* Add border-radius to the gux-table-beta container */
+.rounded-table {
+    border-radius: 10px; /* Adjust the radius to your preference */
+    overflow: hidden; /* Ensure the rounded corners are visible */
+}
+
+/* Add border-radius to the table itself */
+.rounded-table table {
+    border-radius: 10px; /* Adjust the radius to your preference */
+}

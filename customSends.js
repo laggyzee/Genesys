@@ -7,12 +7,22 @@ setTimeout(function() {
     .then(data => {
       responseUserPreference = data;
       // Call populateUserPreferencesButtons after the data is loaded
-      populateUserPreferencesButtons();
+      waitForUserId();
     });
 }, 2000); // Delay by 2 seconds // Replace this with the actual data from responseUserPreference.json
 
-// Delay the execution of populateUserPreferencesButtons by 2 seconds
-setTimeout(populateUserPreferencesButtons, 2000);
+var attempts = 0;
+
+function waitForUserId() {
+  if(window.currentUserId) {
+    populateUserPreferencesButtons();
+  } else if (attempts < 10) {
+    attempts++;
+    setTimeout(waitForUserId, 500); // wait 500 milliseconds then recheck
+  } else {
+    console.error('Unable to retrieve currentUserId after 10 attempts');
+  }
+}
 
 function populateUserPreferencesButtons() {
   console.log('currentUserId:', window.currentUserId); // Check found userId

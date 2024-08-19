@@ -16,6 +16,26 @@
         { "ID": "d4d84ae4-f484-4f5e-cc84-345675ca8329", "Name": "Alice Brown" },
         { "ID": "e5e84ae5-g485-4f5e-dd85-456785ca8330", "Name": "Bob White" }
       ]
+    },
+    {
+      "userId": "6bd07766-0d1e-4418-a4b2-64f6a225e1be",
+      "details": [
+        { "ID": "16d0f7b1-06a9-4503-be4e-ab6180cd9bba", "Name": "Sim Pack Recharge" },
+        { "ID": "5c544cd6-0e69-4bd4-9d55-7c1b7c7870a0", "Name": "Contact Catch" },
+        { "ID": "df088be0-f160-4395-8485-2c019cb0e8f7", "Name": "CC - Replace Sim" },
+        { "ID": "17d32bdd-0dfc-4208-9d1e-c2e118a23944", "Name": "CM - Replace Sim" },
+        { "ID": "ab607c01-be11-4c85-ae3f-33fd78f3e963", "Name": "Queries?" }
+      ]
+    },
+    {
+      "userId": "1ffa52b7-af48-4228-b01d-42e09c97f302",
+      "details": [
+        { "ID": "2df954eb-0eb0-41cb-bf0d-87c8c19f6c23", "Name": "Sim Pack Recharge" },
+        { "ID": "0b6f723e-9367-4ed5-9743-802d684b49bc", "Name": "Green ID DL" },
+        { "ID": "7f55cfd5-82df-4f6b-8a8b-8e8a25a1aa93", "Name": "CC - Enable AR No CC" },
+        { "ID": "d56f5797-6d4d-423c-a6d6-ec9e7156b75b", "Name": "CM - Enable AR No CC" }
+        
+      ]
     }
   ]
 }

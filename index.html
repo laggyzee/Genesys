@@ -22,18 +22,28 @@
   <script src="checkInteraction.js" defer></script>
   <script src="sendMessage.js" defer></script>
   <script src="outcome.js" defer></script>
-  <script src="customSends.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 </head>
 
 <body class="dark" id="main_container" onload="start(); fillTableValues(); hideElements()">
   <!-- <body class="dark" id="main_container"> -->
   <div class="beta">
-    <gux-badge-beta bold color="green">~~~~~Stable Release 1.0.0~~~~~</gux-badge-beta>
+    <gux-badge-beta bold color="green">~~~~~Stable Release 1.0.3~~~~~</gux-badge-beta>
     <gux-badge-beta bold color="yellow">~~~~~Custom Quick Sends BETA~~~~~</gux-badge-beta>
     <p></p>
     <gux-badge-beta id="interactionBadge" bold color="red">Interaction Not Linked</gux-badge-beta>
     <gux-badge-beta id="outcomeBadge" bold color="red">Outcome Not Set</gux-badge-beta>
+    <!-- Dropdown moved next to the outcome badge -->
+    <gux-dropdown id="outcomeDropdown" filter-type="starts-with" placeholder="Contact Outcome" allow-multiple
+      style="display:inline-block; vertical-align:middle; width: 200px;">
+      <gux-listbox aria-label="Countries" id="listboxOutcome">
+        <gux-option value="Query">Query</gux-option>
+        <gux-option value="Escalated">Escalated</gux-option>
+        <gux-option value="Resolved">Resolved</gux-option>
+        <gux-option value="Unresolved">Unresolved</gux-option>
+        <gux-option value="Mid Flight">Mid Flight</gux-option>
+      </gux-listbox>
+    </gux-dropdown>
     <select style="padding:3px;float:right;" onchange="changemode();" id="change_mode">
       <option value="dark">Dark</option>
       <option value="light">Light</option>
@@ -57,36 +67,9 @@
       </ul>
     </div>
   </div>
-  <!-- <gux-table-beta compact>
-    <table slot="data">
-      <tbody>
-        <tr>
-          <td><strong>Customer Provided Details:</strong></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Customer Name:</td>
-          <td id="fullNameCell">No Details Provided</td>
-        </tr>
-        <tr>
-          <td>Date of Birth:</td>
-          <td id="dobCell">No Details Provided</td>
-        </tr>
-        <tr>
-          <td>MSN:</td>
-          <td id="MSNCell">No Details Provided</td>
-        </tr>
-        <tr>
-          <td>E-Mail:</td>
-          <td id="eMailCell">No Details Provided</td>
-        </tr>
-      </tbody>
-    </table>
-  </gux-table-beta> -->
-
   <p>
   </p>
-  <div class="portlet">
+  <div class="portlet" id="quickSendsPortlet">
     <div class="portlet-title">
       Quick Sends
     </div>
@@ -142,6 +125,9 @@
         <gux-button data-id="4ef1c183-2376-48a1-ac52-796ef7ec7cb3" accent="primary" style="min-width: 150px;">
           <gux-icon icon-name="message-reply"></gux-icon><span>Goodbye</span>
         </gux-button>
+        <gux-button data-id="60e26dbb-1d15-4997-b04d-625300b5d144" accent="primary" style="min-width: 150px;">
+          <gux-icon icon-name="message-reply"></gux-icon><span>Survey Prompt</span>
+        </gux-button>
       </div>
       <div class="portlet-title">
         Custom
@@ -154,66 +140,9 @@
   </div>
   </div>
   <P></P>
-  <div class="portlet">
-    <div class="quick-sends__filter">
-      <h2 class="quick-sends__title">Call Outcome</h2>
-      <gux-dropdown id="outcomeDropdown" filter-type="starts-with" placeholder="Contact Outcome" allow-multiple>
-        <gux-listbox aria-label="Countries" id="listboxOutcome">
-          <gux-option value="Query">Query</gux-option>
-          <gux-option value="Escalated">Escalated</gux-option>
-          <gux-option value="Resolved">Resolved</gux-option>
-          <gux-option value="Unresolved Chat">Unresolved Chat</gux-option>
-          <gux-option value="Mid Flight">Mid Flight</gux-option>
-        </gux-listbox>
-      </gux-dropdown>
-    </div>
+
   </div>
   <div class="test">
-    <!-- <h2 class="quick-sends__title">Quick Sends</h2>
-    <div class="quick-sends__buttons" id="quickSendsButtons">
-      <gux-button data-id="e797b7b5-65da-4d9e-a429-d92d9f99393c" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>Away Message</span>
-      </gux-button>
-      <gux-button data-id="9b7a9df7-6595-4e81-825c-e155583599f6" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>2FA + GreenID</span><gux-icon
-          icon-name="roster-sms"></gux-icon>
-      </gux-button>
-      <gux-button data-id="90fcddda-06bd-41b5-8e34-94455403ed61" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>2FA + GreenID</span><gux-icon
-          icon-name="roster-email"></gux-icon>
-      </gux-button>
-      <gux-button data-id="c0f098db-8408-49fa-b5ad-af5b7734bb08" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>2FA</span><gux-icon icon-name="roster-sms"></gux-icon>
-      </gux-button>
-      <gux-button data-id="400a6b27-bf06-4140-82d4-ae6c7a0fdd96" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>2FA</span><gux-icon icon-name="roster-email"></gux-icon>
-      </gux-button>
-      <gux-button data-id="f886c8fa-5304-4cea-97ff-ddf23fbe6400" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>Hold Message</span>
-      </gux-button>
-      <gux-button data-id="b2e85394-764b-4e3f-9645-e7b38864b706" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>Wrap Up</span>
-      </gux-button>
-      <gux-button data-id="5f57309e-f0aa-4a7b-9b2b-25194cf8dd28" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>Port Number</span>
-      </gux-button>
-      <gux-button data-id="f59ea565-af7b-47fc-8739-79bc0b4195ac" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>APN iPhone</span>
-      </gux-button>
-      <gux-button data-id="473e877f-1d01-43c2-83fb-44875d3e6261" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>APN Android</span>
-      </gux-button>
-      <gux-button data-id="1789aab1-f896-452b-b67c-747afee2bacc" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>How to Activate</span>
-      </gux-button>
-      <gux-button data-id="f9c84ae1-c481-4f5e-bd82-999265ca8326" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>Add Extras</span>
-      </gux-button>
-      <gux-button data-id="4ef1c183-2376-48a1-ac52-796ef7ec7cb3" accent="primary" style="min-width: 150px;">
-        <gux-icon icon-name="message-reply"></gux-icon><span>Goodbye</span>
-      </gux-button>
-      <P></P>
-    </div> -->
 
     <p></p>
     <div class="portlet">
@@ -224,7 +153,7 @@
             onclick="fetchData(conversationId)"> <span>Get Previous Interaction Details</span></gux-button>
         </div>
         <p></p>
-        <gux-table-beta compact>
+        <gux-table-beta compact class="rounded-table">
           <table id="conversations-table" slot="data">
             <thead>
               <tr>
@@ -285,18 +214,13 @@
 
       function hideElements() {
         const gc_messageType = getUrlParam('gc_messageType');
-        console.log('gc_messageType:', gc_messageType); // Add this line
+        console.log('gc_messageType:', gc_messageType);
 
         if (gc_messageType !== 'Message') {
-          const elementsToHide = [
-            document.querySelector('gux-table-beta'),
-            document.querySelector('.quick-sends__buttons'),
-            document.querySelector('.quick-sends__title')
-          ];
-
-          elementsToHide.forEach(element => {
-            element.style.display = 'none';
-          });
+          const quickSendsPortlet = document.getElementById('quickSendsPortlet');
+          if (quickSendsPortlet) {
+            quickSendsPortlet.style.display = 'none';
+          }
         }
       }
     </script>
@@ -336,6 +260,21 @@
           }
         }
       }
+
+      window.onload = function () {
+        const gc_messageType = getUrlParam('gc_messageType');
+
+        if (gc_messageType === 'Message') {
+          const script = document.createElement('script');
+          script.src = 'customSends.js';
+          document.head.appendChild(script);
+        }
+
+        // Call your other functions here
+        start();
+        fillTableValues();
+        hideElements();
+      };
     </script>
 </body>
 
